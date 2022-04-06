@@ -33,7 +33,9 @@ class CollectionList extends React.Component {
       'variants': `variant`,
       'posts': `article`
     }
-    this.props.history.push(`/web/view/secondary-list/${ownerResource}?topBarTitle=${title}&apiPath=${apiData[ownerResource]}&parentId=${parentId}&exportOwnerResource=${ownerResource}&handle=${handle}&metafieldsName=${metafieldsNameData[ownerResource]}`)
+    this.props.history.push(
+        `/shopify-metafields/secondary-list/${ownerResource}?topBarTitle=${title}&apiPath=${apiData[ownerResource]}&parentId=${parentId}&exportOwnerResource=${ownerResource}&handle=${handle}&metafieldsName=${metafieldsNameData[ownerResource]}`
+    );
     e.stopPropagation()
   }
 

@@ -16,12 +16,24 @@ class HowToUseBanner extends React.Component {
 
   render () {
     return (
-      this.state.active && <div className="mb20">
-        <Banner onDismiss={() => { this.handleOnDismiss() }}>
-          <div>4 steps to know <Link url="/web/view/how-to-use"><span className="blue b">how to use</span></Link> Grow Force Metafields Master!</div>
-        </Banner>
-      </div>
-    )
+        this.state.active && (
+            <div className="mb20">
+                <Banner
+                    onDismiss={() => {
+                        this.handleOnDismiss();
+                    }}
+                >
+                    <div>
+                        4 steps to know{" "}
+                        <Link url="/shopify-metafields/how-to-use">
+                            <span className="blue b">how to use</span>
+                        </Link>{" "}
+                        Grow Force Metafields Master!
+                    </div>
+                </Banner>
+            </div>
+        )
+    );
   }
 }
 

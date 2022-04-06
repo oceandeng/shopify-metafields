@@ -57,11 +57,11 @@ class ResourcesList extends React.Component {
 
         if (ownerResource == "shop") {
             this.props.history.push(
-                `/web/view/editor/${ownerResource}?topBarTitle=${title}&id=${""}&exportOwnerResource=${exportOwnerResource}&metafieldsName=${metafieldsName}`
+                `/shopify-metafields/editor/${ownerResource}?topBarTitle=${title}&id=${""}&exportOwnerResource=${exportOwnerResource}&metafieldsName=${metafieldsName}`
             );
         } else {
             this.props.history.push(
-                `/web/view/first-list/${ownerResource}?topBarTitle=${title}&apiPath=${apiPath}&exportOwnerResource=${exportOwnerResource}&metafieldsName=${metafieldsName}`
+                `/shopify-metafields/first-list/${ownerResource}?topBarTitle=${title}&apiPath=${apiPath}&exportOwnerResource=${exportOwnerResource}&metafieldsName=${metafieldsName}`
             );
         }
     }

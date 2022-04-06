@@ -14,7 +14,7 @@ class SecondaryList extends React.Component {
   }
 
   handleGlobalClick () {
-    this.props.history.push(`/web/view/editor`)
+    this.props.history.push(`/shopify-metafields/editor`);
   }
 
   render () {

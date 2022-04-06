@@ -53,7 +53,7 @@ class IndexExportModal extends React.Component {
             this.setState({ submitLoading: false });
             if (status == "200") {
                 this.handleClose("Success");
-                this.props.history.push("/web/view/activity-logs");
+                this.props.history.push("/shopify-metafields/activity-logs");
             } else {
                 this.handleClose("Error");
             }

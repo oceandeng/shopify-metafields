@@ -45,7 +45,7 @@ class Nav extends React.Component {
 
   handleTabChange (selectedTabIndex) {
     const ROUTENAME = this.state.tabs[selectedTabIndex].panelID
-    let route = `/web/view/${ROUTENAME}`
+    let route = `/shopify-metafields/${ROUTENAME}`;
 
     if (ROUTENAME == 'pricing') {
       route += `?${window.appEnvironment.publicSearch}`;

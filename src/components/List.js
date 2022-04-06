@@ -98,7 +98,15 @@ class List extends React.Component {
   }
 
   handleResourceItemClick (parentId, id, title, previewUrl) {
-    this.props.history.push(`/web/view/editor/${this.ownerResource}?topBarTitle=${encodeURIComponent(title)}&previewUrl=${previewUrl}&id=${id}&parentId=${parentId}&metafieldsName=${this.metafieldsName}`)
+    this.props.history.push(
+        `/shopify-metafields/editor/${
+            this.ownerResource
+        }?topBarTitle=${encodeURIComponent(
+            title
+        )}&previewUrl=${previewUrl}&id=${id}&parentId=${parentId}&metafieldsName=${
+            this.metafieldsName
+        }`
+    );
   }
 
   handlePagination (type) {
