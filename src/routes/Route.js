@@ -1,14 +1,14 @@
-import React, { Suspense } from 'react';
+import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import Loading from '@/components/Loading';
+import Loading from "@/components/Loading";
 
-const ResourcesList = React.lazy(() => import('@/pages/ResourcesList'))
-const FirstList = React.lazy(() => import('@/pages/FirstList'))
-const SecondaryList = React.lazy(() => import('@/pages/SecondaryList'))
-const Editor = React.lazy(() => import('@/pages/Editor'))
-const ActivityLog = React.lazy(() => import('@/pages/ActivityLog'))
-const Pricing = React.lazy(() => import('@/pages/Pricing'))
-const HowToUse = React.lazy(() => import('@/pages/HowToUse'))
+const ResourcesList = React.lazy(() => import("@/pages/ResourcesList"));
+const FirstList = React.lazy(() => import("@/pages/FirstList"));
+const SecondaryList = React.lazy(() => import("@/pages/SecondaryList"));
+const Editor = React.lazy(() => import("@/pages/Editor"));
+const ActivityLog = React.lazy(() => import("@/pages/ActivityLog"));
+const Pricing = React.lazy(() => import("@/pages/Pricing"));
+const HowToUse = React.lazy(() => import("@/pages/HowToUse"));
 
 const Routes = () => (
     <Suspense fallback={<Loading />}>
@@ -23,19 +23,16 @@ const Routes = () => (
                 path="/shopify-metafields/first-list/:ownerResource"
                 component={FirstList}
             />
-            <Route
+            {/* <Route
                 path="/shopify-metafields/secondary-list/:ownerResource"
                 component={SecondaryList}
-            />
+            /> */}
             <Route
                 path="/shopify-metafields/editor/:ownerResource"
                 component={Editor}
             />
-            <Route
-                path="/shopify-metafields/activity-logs"
-                component={ActivityLog}
-            />
-            <Route path="/shopify-metafields/pricing" component={Pricing} />
+            {/* <Route path="/shopify-metafields/activity-logs" component={ActivityLog} /> */}
+            {/* <Route path="/shopify-metafields/pricing" component={Pricing} /> */}
             <Route path="/shopify-metafields/how-to-use" component={HowToUse} />
         </Switch>
     </Suspense>

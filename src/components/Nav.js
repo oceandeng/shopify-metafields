@@ -13,11 +13,11 @@ class Nav extends React.Component {
           content: 'Resources list',
           panelID: 'resources-list',
         },
-        {
-          id: 'activity-logs',
-          content: 'Activity Logs',
-          panelID: 'activity-logs',
-        },
+        // {
+        //   id: 'activity-logs',
+        //   content: 'Activity Logs',
+        //   panelID: 'activity-logs',
+        // },
         // {
         //   id: 'pricing',
         //   content: 'Pricing',

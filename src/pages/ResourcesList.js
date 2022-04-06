@@ -103,7 +103,9 @@ class ResourcesList extends React.Component {
                                             return (
                                                 <div
                                                     className={
-                                                        id == 9 ? "active" : "disabled"
+                                                        id == 9
+                                                            ? "active"
+                                                            : "disabled"
                                                     }
                                                 >
                                                     <ResourceItem
