@@ -6,7 +6,6 @@ const ResourcesList = React.lazy(() => import("@/pages/ResourcesList"));
 const FirstList = React.lazy(() => import("@/pages/FirstList"));
 const SecondaryList = React.lazy(() => import("@/pages/SecondaryList"));
 const Editor = React.lazy(() => import("@/pages/Editor"));
-const ActivityLog = React.lazy(() => import("@/pages/ActivityLog"));
 const Pricing = React.lazy(() => import("@/pages/Pricing"));
 const HowToUse = React.lazy(() => import("@/pages/HowToUse"));
 
@@ -31,7 +30,6 @@ const Routes = () => (
                 path="/shopify-metafields/editor/:ownerResource"
                 component={Editor}
             />
-            {/* <Route path="/shopify-metafields/activity-logs" component={ActivityLog} /> */}
             {/* <Route path="/shopify-metafields/pricing" component={Pricing} /> */}
             <Route path="/shopify-metafields/how-to-use" component={HowToUse} />
         </Switch>

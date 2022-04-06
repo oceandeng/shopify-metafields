@@ -14,11 +14,6 @@ class Nav extends React.Component {
           panelID: 'resources-list',
         },
         // {
-        //   id: 'activity-logs',
-        //   content: 'Activity Logs',
-        //   panelID: 'activity-logs',
-        // },
-        // {
         //   id: 'pricing',
         //   content: 'Pricing',
         //   panelID: 'pricing',

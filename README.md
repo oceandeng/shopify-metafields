@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## Demo
+在线预览：[https://oceandeng.github.io/shopify-metafields/](https://oceandeng.github.io/shopify-metafields/)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -68,3 +72,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Tips
+git subtree push --prefix build origin gh-pages
