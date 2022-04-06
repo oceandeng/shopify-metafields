@@ -2,35 +2,37 @@ import React, { Suspense } from 'react';
 import { Route, Switch } from "react-router-dom";
 import Loading from '@/components/Loading';
 
-// const ResourcesList = React.lazy(() => import('@/pages/ResourcesList'))
-// const FirstList = React.lazy(() => import('@/pages/FirstList'))
-// const SecondaryList = React.lazy(() => import('@/pages/SecondaryList'))
-// const Editor = React.lazy(() => import('@/pages/Editor'))
-// const ActivityLog = React.lazy(() => import('@/pages/ActivityLog'))
-// const Pricing = React.lazy(() => import('@/pages/Pricing'))
-// const HowToUse = React.lazy(() => import('@/pages/HowToUse'))
-
-import ResourcesList from "@/pages/ResourcesList"
-import FirstList from "@/pages/FirstList"
-import SecondaryList from "@/pages/SecondaryList"
-import Editor from "@/pages/Editor"
-import ActivityLog from "@/pages/ActivityLog"
-import Pricing from "@/pages/Pricing"
-import HowToUse from "@/pages/HowToUse"
+const ResourcesList = React.lazy(() => import('@/pages/ResourcesList'))
+const FirstList = React.lazy(() => import('@/pages/FirstList'))
+const SecondaryList = React.lazy(() => import('@/pages/SecondaryList'))
+const Editor = React.lazy(() => import('@/pages/Editor'))
+const ActivityLog = React.lazy(() => import('@/pages/ActivityLog'))
+const Pricing = React.lazy(() => import('@/pages/Pricing'))
+const HowToUse = React.lazy(() => import('@/pages/HowToUse'))
 
 const Routes = () => (
-  <Suspense fallback={<Loading />}>
-    <Switch>
-      <Route path="/" exact component={ResourcesList} />
-      <Route path="/web/view/resources-list" component={ResourcesList} />
-      <Route path="/web/view/first-list/:ownerResource" component={FirstList} />
-      <Route path="/web/view/secondary-list/:ownerResource" component={SecondaryList} />
-      <Route path="/web/view/editor/:ownerResource" component={Editor} />
-      <Route path="/web/view/activity-logs" component={ActivityLog} />
-      <Route path="/web/view/pricing" component={Pricing} />
-      <Route path="/web/view/how-to-use" component={HowToUse} />
-    </Switch>
-  </Suspense>
+    <Suspense fallback={<Loading />}>
+        <Switch>
+            <Route
+                path="/shopify-metafields"
+                exact
+                component={ResourcesList}
+            />
+            <Route path="/shopify-metafields/resources-list" component={ResourcesList} />
+            <Route
+                path="/shopify-metafields/first-list/:ownerResource"
+                component={FirstList}
+            />
+            <Route
+                path="/shopify-metafields/secondary-list/:ownerResource"
+                component={SecondaryList}
+            />
+            <Route path="/shopify-metafields/editor/:ownerResource" component={Editor} />
+            <Route path="/shopify-metafields/activity-logs" component={ActivityLog} />
+            <Route path="/shopify-metafields/pricing" component={Pricing} />
+            <Route path="/shopify-metafields/how-to-use" component={HowToUse} />
+        </Switch>
+    </Suspense>
 );
 
 export default Routes;
