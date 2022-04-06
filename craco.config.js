@@ -9,7 +9,7 @@ module.exports = {
         configure: (webpackConfig, { env, paths }) => {
             webpackConfig.output = {
                 ...webpackConfig.output,
-                publicPath: "/shopify-metafields",
+                publicPath: "/shopify-metafields/",
             };
             return webpackConfig;
         },
