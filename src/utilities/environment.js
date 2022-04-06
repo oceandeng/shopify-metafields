@@ -15,7 +15,7 @@
     publicSearch = window.location.search.substring(1);
   }
 
-  W.appEnvironment = (W.appEnvironment && object.prototype.toString.call(W.appEnvironment) == '[object Object]') ? W.appEnvironment : {}
+  W.appEnvironment = {}
 
   W.appEnvironment.apiURL = apiURL
   W.appEnvironment.publicSearch = publicSearch

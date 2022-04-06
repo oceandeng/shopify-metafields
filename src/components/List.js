@@ -8,14 +8,15 @@ import Loading from '../components/Loading'
 class List extends React.Component {
   constructor(props) {
     super(props)
+
     this.ownerResource = this.props.match.params.ownerResource
     this.isShopifyGra = ['orders', 'customers', 'products'].includes(this.ownerResource)
     this.isPosts = this.ownerResource == 'posts'
 
-    this.apiPath = publicTools.getQuery('apiPath')
-    this.handle = publicTools.getQuery('handle')
-    this.metafieldsName = publicTools.getQuery('metafieldsName')
-    this.apiURL = appEnvironment.apiURL + this.apiPath
+    this.apiPath = window.publicTools.getQuery('apiPath')
+    this.handle = window.publicTools.getQuery('handle')
+    this.metafieldsName = window.publicTools.getQuery('metafieldsName')
+    this.apiURL = window.appEnvironment.apiURL + this.apiPath
     this.apiData = firstAPI
     this.dataField = this._getDataField()
     this.timer = null
@@ -49,7 +50,7 @@ class List extends React.Component {
     }
 
     this.setState({ loading: true }, () => {
-      axios.get(this.apiURL, { params }).then(res => {
+      window.axios.get(this.apiURL, { params }).then(res => {
         if (res.data.status == 200) {
           const data = res.data.data || res.data
           const { link } = data

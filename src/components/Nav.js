@@ -18,11 +18,11 @@ class Nav extends React.Component {
           content: 'Activity Logs',
           panelID: 'activity-logs',
         },
-        {
-          id: 'pricing',
-          content: 'Pricing',
-          panelID: 'pricing',
-        },
+        // {
+        //   id: 'pricing',
+        //   content: 'Pricing',
+        //   panelID: 'pricing',
+        // },
         {
           id: 'how-to-use',
           content: 'How To Use',
@@ -36,7 +36,7 @@ class Nav extends React.Component {
   init () {
     let pathname = this.props.location.pathname.split('/').pop()
     let search = window.location.search
-    this.queryTag = publicTools.getSearchQuery(search, 'callbackTag')
+    this.queryTag = window.publicTools.getSearchQuery(search, 'callbackTag')
     if (!!this.queryTag && this.queryTag == 'pricing') {
       pathname = this.queryTag
     }
@@ -48,7 +48,7 @@ class Nav extends React.Component {
     let route = `/web/view/${ROUTENAME}`
 
     if (ROUTENAME == 'pricing') {
-      route += `?${appEnvironment.publicSearch}`
+      route += `?${window.appEnvironment.publicSearch}`;
     }
 
     this.setState({ selected: selectedTabIndex })

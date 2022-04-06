@@ -6,8 +6,8 @@ import GoBack from '../GoBack';
 class EditorTopBar extends React.Component {
   constructor(props) {
     super(props)
-    this.topBarTitle = publicTools.getQuery('topBarTitle')
-    this.previewUrl = publicTools.getQuery('previewUrl')
+    this.topBarTitle = window.publicTools.getQuery('topBarTitle')
+    this.previewUrl = window.publicTools.getQuery('previewUrl')
     this.max = 10
 
     this.ownerResource = this.props.ownerResource
@@ -33,7 +33,7 @@ class EditorTopBar extends React.Component {
   }
 
   handleView () {
-    window.open(`${window.location.protocol}//${__SHOP__.myshopify_domain}/${this.previewUrl}`)
+    window.open(`${window.location.protocol}//${window.__SHOP__.myshopify_domain}/${this.previewUrl}`)
   }
 
   render () {

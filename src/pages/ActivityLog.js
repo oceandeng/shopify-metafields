@@ -12,7 +12,7 @@ class ActivityLog extends React.Component {
   constructor(props) {
     super(props)
 
-    this.apiURL = `${appEnvironment.apiURL}eximportlog`
+    this.apiURL = `${window.appEnvironment.apiURL}eximportlog`;
 
     this.state = {
       active: false,
@@ -31,7 +31,7 @@ class ActivityLog extends React.Component {
       limit: 10,
       page: this.state.currentPage
     }
-    axios.get(this.apiURL, { params }).then(res => {
+    window.axios.get(this.apiURL, { params }).then(res => {
       let d = res.data.data
 
       let data = d.data.map(item => {
@@ -53,14 +53,17 @@ class ActivityLog extends React.Component {
   }
 
   handleDelete (item, cb) {
-    axios.delete(`${appEnvironment.apiURL}eximportlog/${item.id}`).then(res => {
-      this.setState({ active: true }, () => {
-        cb && cb()
-        this.getLog()
-      })
-    }).catch(err => {
-      cb && cb()
-    })
+    window.axios
+        .delete(`${window.appEnvironment.apiURL}eximportlog/${item.id}`)
+        .then((res) => {
+            this.setState({ active: true }, () => {
+                cb && cb();
+                this.getLog();
+            });
+        })
+        .catch((err) => {
+            cb && cb();
+        });
   }
 
   setData (data, cb) {
@@ -119,13 +122,13 @@ class ActivityLog extends React.Component {
   }
 
   handleCalcDate (date) {
-    var timeZone = publicTools.clientTimeZone()
+    var timeZone = window.publicTools.clientTimeZone()
     let timeStamp = new Date(date).getTime()
     let currentTime = timeZone.hour * 60 * 60 * 1000 + timeZone.munite * 60 * 1000
 
     let t = timeZone.prefix == "+" ? timeStamp + currentTime : timeStamp - currentTime
 
-    return publicTools.getExactTime(t)
+    return window.publicTools.getExactTime(t)
   }
 
   componentDidMount () {

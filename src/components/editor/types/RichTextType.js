@@ -25,7 +25,7 @@ class RichTextType extends React.Component {
     this.textarea = React.createRef()
     this.htmlString = this.props.data.value
     this.throttle = new Throttle()
-    this.apiUploadPath = `${appEnvironment.apiURL}upload`
+    this.apiUploadPath = `${window.appEnvironment.apiURL}upload`;
     this.hooks = {
       'remove-medias': (params) => {
         this.handleRemoveMedias(params)
@@ -79,25 +79,28 @@ class RichTextType extends React.Component {
     fd.append('resource[]', params.file)
     fd.append('dir', 'images')
 
-    axios.post(this.apiUploadPath, fd, {
-      onUploadProgress: (event) => {
-        // 上传进度发生变化时调用param.progress
-        params.progress(event.loaded / event.total * 100)
-      }
-    }).then(res => {
-      // 假设服务端直接返回文件上传后的地址
-      // 上传成功后调用param.success并传入上传后的文件地址
-      let files = res.data.data
+    window.axios
+        .post(this.apiUploadPath, fd, {
+            onUploadProgress: (event) => {
+                // 上传进度发生变化时调用param.progress
+                params.progress((event.loaded / event.total) * 100);
+            },
+        })
+        .then((res) => {
+            // 假设服务端直接返回文件上传后的地址
+            // 上传成功后调用param.success并传入上传后的文件地址
+            let files = res.data.data;
 
-      params.success({
-        url: files.join()
-      })
-    }).catch(err => {
-      // 上传发生错误时调用param.error
-      params.error({
-        msg: 'unable to upload.'
-      })
-    })
+            params.success({
+                url: files.join(),
+            });
+        })
+        .catch((err) => {
+            // 上传发生错误时调用param.error
+            params.error({
+                msg: "unable to upload.",
+            });
+        });
   }
 
   handleRemoveMedias (params) {

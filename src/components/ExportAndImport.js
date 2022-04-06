@@ -12,8 +12,8 @@ class ExportAndImport extends React.Component {
   constructor(props) {
     super(props)
 
-    this.exportApiURL = `${appEnvironment.apiURL}export`
-    this.exportOwnerResource = publicTools.getQuery('exportOwnerResource')
+    this.exportApiURL = `${window.appEnvironment.apiURL}export`
+    this.exportOwnerResource = window.publicTools.getQuery('exportOwnerResource')
     const { ownerResource } = this.props
 
     this.isVariants = ownerResource == 'variants'
@@ -29,7 +29,7 @@ class ExportAndImport extends React.Component {
   }
 
   handleExport () {
-    if (__PERMISSION__.hasExport) {
+    if (window.__PERMISSION__.hasExport) {
       this.setState({ exportLoading: true })
 
       let params = {
@@ -37,19 +37,37 @@ class ExportAndImport extends React.Component {
         type: 2
       }
 
-      axios.get(this.exportApiURL, { params }).then(res => {
-        let status = res.data.status
+      window.axios
+          .get(this.exportApiURL, { params })
+          .then((res) => {
+              let status = res.data.status;
 
-        if (status == '200') {
-          this.setState({ exportLoading: false, active: true, toastTitle: 'Export Success' }, () => {
-            this.props.history.push('/web/view/activity-logs')
+              if (status == "200") {
+                  this.setState(
+                      {
+                          exportLoading: false,
+                          active: true,
+                          toastTitle: "Export Success",
+                      },
+                      () => {
+                          this.props.history.push("/web/view/activity-logs");
+                      }
+                  );
+              } else {
+                  this.setState({
+                      exportLoading: false,
+                      active: true,
+                      toastTitle: res.data.msg,
+                  });
+              }
           })
-        } else {
-          this.setState({ exportLoading: false, active: true, toastTitle: res.data.msg })
-        }
-      }).catch(err => {
-        this.setState({ exportLoading: false, active: true, toastTitle: 'Export Error' })
-      })
+          .catch((err) => {
+              this.setState({
+                  exportLoading: false,
+                  active: true,
+                  toastTitle: "Export Error",
+              });
+          });
       return
     }
 
@@ -57,7 +75,7 @@ class ExportAndImport extends React.Component {
   }
 
   handleImport () {
-    if(__PERMISSION__.hasImport){
+    if(window.__PERMISSION__.hasImport){
       this.setState({ activeImport: true })
       return
     }

@@ -8,7 +8,7 @@ class CollectionList extends React.Component {
   constructor(props) {
     super(props)
 
-    this.exportOwnerResource = publicTools.getQuery('exportOwnerResource')
+    this.exportOwnerResource = window.publicTools.getQuery('exportOwnerResource')
 
     const { ownerResource } = this.props
     this.ownerResource = ownerResource
@@ -42,7 +42,7 @@ class CollectionList extends React.Component {
 
     const lh = (this.isProductType || this.isArticles || this.isVariants) ? 'lh60' : this.isCustomer ? 'lh40' : ''
     const sonText = this.isProduct ? 'Variants' : this.isBlogs ? 'Posts' : ''
-    const parentId = this.isProduct ? legacyResourceId : this.isBlogs ? id : (this.isVariants || this.isArticles) ? publicTools.getQuery('parentId') : ''
+    const parentId = this.isProduct ? legacyResourceId : this.isBlogs ? id : (this.isVariants || this.isArticles) ? window.publicTools.getQuery('parentId') : ''
     const media = (this.isProductType || this.isArticles || this.isVariants) ? <Thumbnail source={image ? image : ImageMajor} name={title} /> :
       this.isCustomer ? <Avatar customer /> :
         this.isArticles ? <Thumbnail source={image ? image : ImageMajor} name={title} /> : ''

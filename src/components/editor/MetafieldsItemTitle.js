@@ -18,13 +18,13 @@ class MetafieldsItemTitle extends React.Component {
   }
 
   handleCalcDate (date) {
-    var timeZone = publicTools.clientTimeZone()
+    var timeZone = window.publicTools.clientTimeZone()
     let timeStamp = new Date(date).getTime()
     let currentTime = timeZone.hour * 60 * 60 * 1000 + timeZone.munite * 60 * 1000
 
     let t = timeZone.prefix == "+" ? timeStamp + currentTime : timeStamp - currentTime
 
-    return publicTools.getExactTime(t)
+    return window.publicTools.getExactTime(t)
   }
 
   handleClipboardJS () {

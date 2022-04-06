@@ -7,7 +7,7 @@ class IndexExportModal extends React.Component {
   constructor(props) {
     super(props)
 
-    this.apiURL = `${appEnvironment.apiURL}export`
+    this.apiURL = `${window.appEnvironment.apiURL}export`;
 
     this.state = {
       active: this.props.active,
@@ -45,20 +45,23 @@ class IndexExportModal extends React.Component {
     }
 
     this.setState({ submitLoading: true})
-    axios.get(this.apiURL, { params }).then(res => {
-      console.log(res);
-      let status = res.data.status
-      this.setState({ submitLoading: false })
-      if (status == '200') {
-        this.handleClose('Success')
-        this.props.history.push('/web/view/activity-logs')
-      }else{
-        this.handleClose('Error')
-      }
-    }).catch(err => {
-      this.setState({ submitLoading: false })
-      this.handleClose('Error')
-    })
+    window.axios
+        .get(this.apiURL, { params })
+        .then((res) => {
+            console.log(res);
+            let status = res.data.status;
+            this.setState({ submitLoading: false });
+            if (status == "200") {
+                this.handleClose("Success");
+                this.props.history.push("/web/view/activity-logs");
+            } else {
+                this.handleClose("Error");
+            }
+        })
+        .catch((err) => {
+            this.setState({ submitLoading: false });
+            this.handleClose("Error");
+        });
   }
 
   handleCancel () {

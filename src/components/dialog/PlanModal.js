@@ -6,7 +6,7 @@ class PlanModal extends React.Component {
   constructor(props) {
     super(props)
 
-    this.apiURL = `${appEnvironment.apiURL}plan/change`
+    this.apiURL = `${window.appEnvironment.apiURL}plan/change`;
 
     this.state = {
       permission: '',
@@ -28,17 +28,20 @@ class PlanModal extends React.Component {
 
   handleModalUpgrade () {
     this.setState({ loading: true })
-    axios.post(this.apiURL, { id: this.id }).then(res => {
-      let status = res.data.status
-      if (status == 200) {
-        let redirectURL = res.data.data.redirect_url
-        window.top.location.href = redirectURL
-      } else {
-        this.setState({ loading: false, message: res.data.msg })
-      }
-    }).catch(err => {
-      this.setState({ loading: false, active: true, message: 'Error' })
-    })
+    window.axios
+        .post(this.apiURL, { id: this.id })
+        .then((res) => {
+            let status = res.data.status;
+            if (status == 200) {
+                let redirectURL = res.data.data.redirect_url;
+                window.top.location.href = redirectURL;
+            } else {
+                this.setState({ loading: false, message: res.data.msg });
+            }
+        })
+        .catch((err) => {
+            this.setState({ loading: false, active: true, message: "Error" });
+        });
   }
 
   handleModalOpen (permission) {

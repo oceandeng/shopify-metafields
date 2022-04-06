@@ -10,7 +10,7 @@ class IndexImportModal extends React.Component {
 
     const disableOptions = ["shop", "customers", "draft_orders", "orders", "variants"]
 
-    this.importApiURL = `${appEnvironment.apiURL}import`
+    this.importApiURL = `${window.appEnvironment.apiURL}import`;
     this.formData = new FormData()
     this.validFileTypes = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']
 
@@ -61,16 +61,19 @@ class IndexImportModal extends React.Component {
     this.formData.append('ownerResource', this.props.exportOwnerResource)
     this.formData.append('importBy', this.state.selected)
 
-    axios.post(this.importApiURL, this.formData).then(res => {
-      console.log(res);
-      let message = 'Uploading, please refresh the page later'
-      if (res.data.status != 200) {
-        message = res.data.msg
-      }
-      this.handleClose(message)
-    }).catch(err => {
-      this.handleClose('Error')
-    })
+    window.axios
+        .post(this.importApiURL, this.formData)
+        .then((res) => {
+            console.log(res);
+            let message = "Uploading, please refresh the page later";
+            if (res.data.status != 200) {
+                message = res.data.msg;
+            }
+            this.handleClose(message);
+        })
+        .catch((err) => {
+            this.handleClose("Error");
+        });
   }
 
   handleDelete (e, file, index) {

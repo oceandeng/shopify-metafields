@@ -10,7 +10,7 @@ class SecondaryList extends React.Component {
     super(props)
     this.ownerResource = this.props.match.params.ownerResource
 
-    this.topBarTitle = publicTools.getQuery('topBarTitle')
+    this.topBarTitle = window.publicTools.getQuery("topBarTitle");
   }
 
   handleGlobalClick () {

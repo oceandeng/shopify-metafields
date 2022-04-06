@@ -62,11 +62,11 @@ class DatePickerType extends React.Component {
       const d = this.selectedDay.split('/')
       if (/[a-zA-Z]+/g.test(this.selectedDay)) {
         obj.year = Number(d[2])
-        obj.month = Number(publicTools.leadingDigit(this.months.indexOf(d[1]) * 1 + 1))
+        obj.month = Number(window.publicTools.leadingDigit(this.months.indexOf(d[1]) * 1 + 1))
         obj.day = Number(d[0])
       } else {
         obj.year = Number(d[0])
-        obj.month = Number(publicTools.leadingDigit(d[1]))
+        obj.month = Number(window.publicTools.leadingDigit(d[1]))
         obj.day = Number(d[2])
       }
     }
@@ -124,7 +124,7 @@ class DatePickerType extends React.Component {
   }
 
   _toStringSelectedDay (selected, day) {
-    return selected == '1' ? `${publicTools.leadingDigit(day.day)}/${this.months[day.month - 1]}/${day.year}` : selected == '2' ? `${day.year}/${publicTools.leadingDigit(day.month)}/${publicTools.leadingDigit(day.day)}` : ''
+    return selected == '1' ? `${window.publicTools.leadingDigit(day.day)}/${this.months[day.month - 1]}/${day.year}` : selected == '2' ? `${day.year}/${window.publicTools.leadingDigit(day.month)}/${window.publicTools.leadingDigit(day.day)}` : ''
   }
 
   componentDidUpdate (prevProps, prevState) {

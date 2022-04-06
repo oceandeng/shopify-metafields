@@ -17,8 +17,8 @@ class Pricing extends React.Component {
       errStatus:false,
       planDataAlloptions:["Unlimited Fields"," Field Types","Export","Import","Rich Text","Bulk Export","storage_file_size","upload_file_size"]
     }
-    this.apiURL = `${appEnvironment.apiURL}plan/change`
-    this.apiURLUsedtotal = `${appEnvironment.apiURL}uploaded/usedtotal`
+    this.apiURL = `${window.appEnvironment.apiURL}plan/change`
+    this.apiURLUsedtotal = `${window.appEnvironment.apiURL}uploaded/usedtotal`
   }
   componentDidMount () {
     this.usedTotal()
@@ -74,7 +74,7 @@ class Pricing extends React.Component {
   }
 
   usedTotal () {
-    axios.get(this.apiURLUsedtotal).then(res => {
+    window.axios.get(this.apiURLUsedtotal).then(res => {
       var usedSize = Math.floor(res.data.data.used/1024/1024 * 100) / 100
       var totalSize = res.data.data.total/1024/1024
       var newUsedScale = usedSize/totalSize*100
@@ -87,7 +87,7 @@ class Pricing extends React.Component {
   planChange (e,id) {
     if(this.state.currentPlanId!=id){
       this.setState({loading:true})
-      axios.post(this.apiURL, { id:id }).then(res => {
+      window.axios.post(this.apiURL, { id:id }).then(res => {
         if(res.data.status==200){
           if(res.data.data.redirect_url==""&&id==1){
             window.location.reload();
