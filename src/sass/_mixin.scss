@@ -1,0 +1,15 @@
+@mixin box-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin clearfix() {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  *zoom: 1;
+}
