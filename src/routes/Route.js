@@ -2,13 +2,21 @@ import React, { Suspense } from 'react';
 import { Route, Switch } from "react-router-dom";
 import Loading from '@/components/Loading';
 
-const ResourcesList = React.lazy(() => import('@/pages/ResourcesList'))
-const FirstList = React.lazy(() => import('@/pages/FirstList'))
-const SecondaryList = React.lazy(() => import('@/pages/SecondaryList'))
-const Editor = React.lazy(() => import('@/pages/Editor'))
-const ActivityLog = React.lazy(() => import('@/pages/ActivityLog'))
-const Pricing = React.lazy(() => import('@/pages/Pricing'))
-const HowToUse = React.lazy(() => import('@/pages/HowToUse'))
+// const ResourcesList = React.lazy(() => import('@/pages/ResourcesList'))
+// const FirstList = React.lazy(() => import('@/pages/FirstList'))
+// const SecondaryList = React.lazy(() => import('@/pages/SecondaryList'))
+// const Editor = React.lazy(() => import('@/pages/Editor'))
+// const ActivityLog = React.lazy(() => import('@/pages/ActivityLog'))
+// const Pricing = React.lazy(() => import('@/pages/Pricing'))
+// const HowToUse = React.lazy(() => import('@/pages/HowToUse'))
+
+import ResourcesList from "@/pages/ResourcesList"
+import FirstList from "@/pages/FirstList"
+import SecondaryList from "@/pages/SecondaryList"
+import Editor from "@/pages/Editor"
+import ActivityLog from "@/pages/ActivityLog"
+import Pricing from "@/pages/Pricing"
+import HowToUse from "@/pages/HowToUse"
 
 const Routes = () => (
   <Suspense fallback={<Loading />}>
