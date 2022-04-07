@@ -14,6 +14,7 @@ import {
 import { homeList } from "../data/index";
 import emitter from "../utilities/ev";
 import HowToUseBanner from "../components/HowToUseBanner";
+import { withRouter } from "react-router-dom";
 class ResourcesList extends React.Component {
     constructor(props) {
         super(props);

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Banner, Link } from '@shopify/polaris'
 
+import { withRouter } from "react-router-dom";
 class HowToUseBanner extends React.Component {
   constructor(props) {
     super(props)
@@ -14,6 +15,10 @@ class HowToUseBanner extends React.Component {
     this.setState({active: !this.state.active})
   }
 
+  handleGoHow(){
+    this.props.history.push('/shopify-metafields/how-to-use')
+  }
+
   render () {
     return (
         this.state.active && (
@@ -25,9 +30,7 @@ class HowToUseBanner extends React.Component {
                 >
                     <div>
                         4 steps to know{" "}
-                        <Link url="/shopify-metafields/how-to-use">
-                            <span className="blue b">how to use</span>
-                        </Link>{" "}
+                            <span className="blue b" onClick={() => {this.handleGoHow()}} >how to use</span>
                         Grow Force Metafields Master!
                     </div>
                 </Banner>
@@ -37,4 +40,4 @@ class HowToUseBanner extends React.Component {
   }
 }
 
-export default HowToUseBanner
+export default withRouter(HowToUseBanner)
